@@ -1,0 +1,14 @@
+/* Customize styles for your floor plan */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.floor-plan {
+    /* Define your floor plan layout (grid, flex, etc.) */
+    /* Example: display: grid; grid-template-columns: repeat(4, 1fr); */
+}
+
+.table {
+    /* Style individual tables (size, color, etc.) */
+    /* Example: background-color: #f2f2f2; border: 1px solid #ccc; */
+}
