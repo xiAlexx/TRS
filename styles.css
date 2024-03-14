@@ -1,6 +1,15 @@
 
 /* styles.css */
 
+
+html {
+    background-color: #000000;
+}
+
+h1 {
+    color: whitesmoke;
+}
+
 /* Apply some basic styling to the entire table */
 .table {
     width: 100px;
@@ -9,6 +18,7 @@
     border: 1px solid #ccc;
     position: absolute;
     cursor: move; /* Make the tables draggable */
+    display: center;
 }
 
 
