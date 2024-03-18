@@ -1,50 +1,175 @@
-
-/* styles.css */
-
-
 html {
     background-color: #000000;
 }
 
-h1 {
-    color: whitesmoke;
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    z-index: 1100;
+    box-sizing: border-box;
+    height: 40px;
 }
 
-/* Apply some basic styling to the entire table */
+.time-date-container {
+    display: inline-flex; /* Change to inline-flex to fit the content */
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 2px solid white;
+    padding: 5px 10px;
+    position: relative;
+    border-width: 2px; /* Adjust the border width as needed */
+}
+
+.left-arrow,
+.right-arrow {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5 5px;
+}
+
+.left-arrow {
+    left: -10px; /* Adjust as needed */
+    border-right: 5px solid white;
+}
+
+.right-arrow {
+    right: -10px; /* Adjust as needed */
+    border-left: 5px solid white;
+}
+
+
+.menu-icon {
+    cursor: pointer;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    position: fixed;
+    top: 0.5px;
+    left: 1px;
+    z-index: 1100;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100vh;
+    background-color: #333;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+}
+
+.menu-item {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.menu-item#editFloorplan {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.menu-item.hidden {
+    display: none;
+}
+
+.content {
+    margin-left: 20%;
+    padding: 20px;
+}
+
+.table-number {
+    color: black;
+}
+
 .table {
+    position: absolute;
     width: 100px;
     height: 100px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
+    background-color: white;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.table-container {
+    position: relative;
+}
+
+.chair {
     position: absolute;
-    cursor: move; /* Make the tables draggable */
-    display: center;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
 }
 
-
-/* Style table headers (th) */
-th {
-    background-color: #f2f2f2;
-    text-align: left;
-    padding: 10px;
+.chair-left {
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Style table data cells (td) */
-td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+.chair-right {
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Alternate row background color for better readability */
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+.add-chair-button,
+.add-table-button {
+    display: none;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    position: fixed;
+    bottom: 10px;
+    z-index: 1200;
 }
 
-
-.ghost-table {
-    position: absolute;
-    opacity: 0.5; /* Adjust opacity for the ghost effect */
-    pointer-events: none; /* Ignore mouse events on the ghost table */
-    /* Add any other styling you want for the ghost table */
+#menuToggle:checked ~ .add-chair-button,
+#menuToggle:checked ~ .add-table-button {
+    display: block;
 }
 
+.add-table-button {
+    left: 10px;
+}
+
+.add-chair-button {
+    left: 95px;
+}
+
+#menuToggle {
+    display: none;
+}
+
+#menuToggle:checked + .menu-icon + .navbar {
+    left: 0;
+}

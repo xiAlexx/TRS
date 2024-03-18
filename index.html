@@ -7,12 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Table Reservation System</h1>
+        
+    <div class="top-bar" id="topBar">
+        <div class="time-date-container" id="timeDateContainer">
+            <div class="left-arrow"></div>
+            <div class="time-date" id="timeDate"></div>
+            <div class="right-arrow"></div>
+        </div>
+	
+        
+        <input type="checkbox" id="menuToggle">
+        <label class="menu-icon" for="menuToggle">&#9776;</label>
+        <div class="navbar" id="navbar">
+            <div class="menu-item" id="editFloorplan">Home</div>
+            <!-- Add more menu items here -->
+        </div>
+
+        <div class="content">
+            <!-- Your content goes here -->
+        </div>
+
+        <div class="table-container" id="tableContainer">
+            <!-- Tables and chairs will be dynamically added here -->
+        </div>
+        
+        <button class="add-chair-button" id="addChairButton">Add Chair</button>
+        <button class="add-table-button" id="addTableButton">Add Table</button>
     
-        <div class="table" id="table1"></div>
-        <div class="table" id="table2"></div>
-        <!-- Add more tables as needed -->
+        <script src="script.js"></script>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
