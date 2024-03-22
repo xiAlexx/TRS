@@ -1,13 +1,13 @@
 # app.py
 
-from flask import Flask, render_template, request
+''' from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Sample reservation data (replace with your database logic)
+#Sample reservation data (replace with your database logic)
 reservations = [
     {"table_id": 1, "date": "2024-03-10", "time": "14:00", "guests": 4},
-    # Add more reservation entries
+     Add more reservation entries
 ]
 
 @app.route("/")
@@ -21,3 +21,4 @@ def get_reservations():
 
 if __name__ == "__main__":
     app.run(debug=True)
+'''
