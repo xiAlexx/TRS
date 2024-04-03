@@ -2,6 +2,18 @@ html {
     background-color: #000000;
 }
 
+#PortersLabLogo {
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin: 0px; /* Adjust the margin as needed */
+        border-radius: 100px;
+        width: auto;
+        height: 40px;
+        z-index: 1;
+}
+
 .top-bar {
     position: fixed;
     top: 0;

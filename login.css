@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(/TRS/images/party_background.jpg);
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: dimgray;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    color: whitesmoke;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ccc;
+    border: solid 1px slategray;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .login-container {
+        width: 80%; /* Adjust width for smaller screens */
+        margin: 50px auto; /* Adjust margin for vertical centering */
+    }
+}

@@ -3,44 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRS - Table Reservation System</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 9999; /* Ensure the loading screen appears above other content */
+        }
+
+        .loading-container img {
+            width: 150px; /* Adjust as needed */
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-        
-    <div class="top-bar" id="topBar">
-        <div class="time-date-container" id="timeDateContainer">
-            <div class="left-arrow"></div>
-            <div class="time-date" id="timeDate"></div>
-            <div class="right-arrow"></div>
-        </div>
-	
-        
-        <input type="checkbox" id="menuToggle">
-        <label class="menu-icon" for="menuToggle">&#9776;</label>
-        <div class="navbar" id="navbar">
-            <div class="menu-item" id="home">Home</div>
-            <div class="menu-item" id="home">Book Table</div>
-            <div class="menu-item" id="home">Edit Table Details</div>
-            <div class="menu-item" id="home">Errmmm</div>
-            <div class="menu-item" id="home">Not Sure</div>
-            <div class="menu-item" id="home">What To Add</div>
-            <div class="menu-item" id="home">Here Yet!!!</div>
-            <!-- Add more menu items here -->
-        </div>
-
-        <div class="content">
-            <!-- Your content goes here -->
-        </div>
-
-        <div class="table-container" id="tableContainer">
-            <!-- Tables and chairs will be dynamically added here -->
-        </div>
-        
-        <button class="add-chair-button" id="addChairButton">Add Chair</button>
-        <button class="add-table-button" id="addTableButton">Add Table</button>
-    
-        <script src="script.js"></script>
+    <!-- Loading page -->
+    <div class="loading-container">
+        <img src="/TRS/images/PortersLabLogo.png" alt="Logo">
+        <!-- You can also include animations or text to indicate loading -->
+        <p>Loading...</p>
     </div>
+
+    <!-- Login form -->
+    <div class="login-container" style="display: none;"> <!-- Initially hidden until loading completes -->
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get the username and password from the form
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            // Perform basic client-side validation
+            if (username === "Admin" && password === "Sammas") {
+                // Redirect to the TRS page if the username and password are correct
+                window.location.href = "trs.html"; 
+            } else {
+                // Display an error message if the username or password is incorrect
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+
+        // Simulate loading time 
+        setTimeout(function() {
+            // Hide the loading screen and show the login container after loading
+            document.querySelector('.loading-container').style.display = 'none';
+            document.querySelector('.login-container').style.display = 'block';
+        }, 5000); // Replace '5000' with the desired loading time in milliseconds e.g., 5 seconds
+    </script>
 </body>
 </html>
