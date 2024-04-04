@@ -3,8 +3,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const addTableButton = document.getElementById('addTableButton');
     const addChairButton = document.getElementById('addChairButton');
     let tableCount = 0; // Initialize table count
-        
-        
+    
+
+    const undoButton = document.getElementById('undoButton');
+
+    undoButton.addEventListener('click', function() {
+        undoLastAction();
+    })
+
+//Function for undo to last action
+function undoLastAction() {
+    const savedPositions = localStorage.getItem('positions');
+    if (savedPositions) {
+        let positions = JSON.parse(savedPositions);
+        if (positions.length > 0) {
+            positions.pop(); // Remove last item
+            localStorage.setItem('positions', JSON.stringify(positions));
+            // Clear the current content in the table container
+            tableContainer.innerHTML = '';
+            // Recreate tables and chairs based on updated positions
+            positions.forEach(item => {
+                if (item.type === 'table') {
+                    const newTable = createTable(++tableCount); // Increment table count
+                    newTable.id = item.id; // Set table id
+                    newTable.style.left = item.left;
+                    newTable.style.top = item.top;
+                    newTable.style.width = item.width;
+                    newTable.style.height = item.height;
+                    tableContainer.appendChild(newTable);
+                } else if (item.type === 'chair') {
+                    const newChair = document.createElement('div');
+                    newChair.classList.add('chair');
+                    newChair.style.position = 'absolute';
+                    newChair.style.width = '35px';
+                    newChair.style.height = '35px';
+                    newChair.style.backgroundColor = '#fff';
+                    newChair.style.border = '1px solid #000';
+                    newChair.style.borderRadius = '50%';
+                    newChair.style.left = item.left;
+                    newChair.style.top = item.top;
+                    newChair.style.transform = 'translate(-50%, -50%)';
+                    tableContainer.appendChild(newChair);
+                }
+            });
+            makeChairsMovable(); // Ensure chairs remain movable after undo
+        }
+    }
+}
+
+
+
 // Update time and date every second
     function updateTimeDate() {
         const timeDateElement = document.getElementById('timeDate');

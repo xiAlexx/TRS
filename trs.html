@@ -8,31 +8,34 @@
 </head>
 <body>
 
+    <!--Logo-->
+
+    <div class="background-container">
+        
+        <img src="/TRS/images/PortersLabLogo.png" alt="Background Image">
+
+    </div>
+
+    <!--Nav-Bars-->
    
     <div class="top-bar" id="topBar">
         <div class="time-date-container" id="timeDateContainer">
             <div class="left-arrow"></div>
             <div class="time-date" id="timeDate"></div>
             <div class="right-arrow"></div>                
-        </div>
-
-        <img class="PortersLabLogo" src="/images/PortersLabLogo.png">
-                
+        </div>        
 	
         
         <input type="checkbox" id="menuToggle">
         <label class="menu-icon" for="menuToggle">&#9776;</label>
         <div class="navbar" id="navbar">
             <div class="menu-item" id="home">Home</div>
-            <div class="menu-item" id="home">Seated</div>
-            <div class="menu-item" id="home">Upcoming</div>
-            <div class="menu-item" id="home">Past</div>
+            <div class="menu-item" id="Seated">Seated</div>
+            <div class="menu-item" id="Upcoming">Upcoming</div>
+            <div class="menu-item" id="Past">Past</div>
             <!-- Add more menu items here -->
         </div>
 
-        <div class="content">
-            <!-- Your content goes here -->
-        </div>
 
         <div class="table-container" id="tableContainer">
             <!-- Tables and chairs will be dynamically added here -->
@@ -40,6 +43,7 @@
         
         <button class="add-chair-button" id="addChairButton">Add Chair</button>
         <button class="add-table-button" id="addTableButton">Add Table</button>
+        <button class="undo-button" id="undoButton">&#8630;</button>
     
         <script src="script.js"></script>
     </div>

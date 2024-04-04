@@ -15,15 +15,26 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     z-index: 9999; /* Ensure the loading screen appears above other content */
 }
 
 .loading-container img {
-    width: 150px; /* Adjust as needed */
+    width: 150px; /* Initial size */
     height: auto;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 50%;
+    animation: pulse 2s infinite alternate; /* Add pulsating animation */
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1); /* Initial size */
+        filter: brightness(1); /* Initial brightness */
+    }
+    to {
+        transform: scale(1.2); /* Increased size */
+        filter: brightness(1.5); /* Increased brightness */
+    }
 }
 
 .login-container {
